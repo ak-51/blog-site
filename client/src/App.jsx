@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Login from './components/Login.jsx'
+import Register from './components/Register.jsx'
 import './App.css';
 
 function App() {
@@ -8,8 +8,8 @@ function App() {
     <Fragment>
       <BrowserRouter>
         <Switch>
-          <Route path='/login' exact>
-            <Login />
+          <Route path='/register' exact>
+            <Register />
           </Route>
         </Switch>
       </BrowserRouter>

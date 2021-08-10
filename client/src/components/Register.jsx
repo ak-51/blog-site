@@ -1,23 +1,24 @@
 import { Fragment } from "react"
-import "./Login.css"
+import "./Register.css"
 
-const Login = () => {
-    const loginSubmit = (e) => {
+const Register = () => {
+    const registrationSubmit = (e) => {
         e.preventDefault()
     }
 
     return(
         <Fragment>
             <div className="page">
-                <div className="loginContainer">
-                    <form onSubmit={loginSubmit}>
+                <div className="registerContainer">
+                    <h1>Register</h1>
+                    <form className="form" onSubmit={registrationSubmit}>
                         <div className="formContainer">
                             <input type="text" placeholder="Name" required />
                             <input type="email" placeholder="Email" required />
                             <input type="password" placeholder="Password" required />
                             <input type="password" placeholder="Confirm Password" required />
-                            <button>Submit</button>
                         </div>
+                        <button>Submit</button>
                     </form>
                 </div>
             </div>
@@ -25,4 +26,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Register
