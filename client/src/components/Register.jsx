@@ -1,7 +1,12 @@
-import { Fragment } from "react"
+import { Fragment, useState } from "react"
 import "./Register.css"
 
 const Register = () => {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [pswdCnfm, setPswdCnfm] = useState('')
+
     const registrationSubmit = (e) => {
         e.preventDefault()
     }
@@ -13,10 +18,10 @@ const Register = () => {
                     <h1>Register</h1>
                     <form className="form" onSubmit={registrationSubmit}>
                         <div className="formContainer">
-                            <input type="text" placeholder="Name" required />
-                            <input type="email" placeholder="Email" required />
-                            <input type="password" placeholder="Password" required />
-                            <input type="password" placeholder="Confirm Password" required />
+                            <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
+                            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                            <input type="password" placeholder="Confirm Password" value={pswdCnfm} onChange={(e) => setPswdCnfm(e.target.value)} required />
                         </div>
                         <button>Submit</button>
                     </form>

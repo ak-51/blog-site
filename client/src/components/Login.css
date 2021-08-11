@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.loginpage {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+    border: 2px solid black;
+}
+
+.loginFormContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginFormContainer input {
+    margin: 5px;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    width: 300px;
+    height: 30px;
+    font-size: 12pt;
+    border: 0.5px solid black;
+}
+
+.loginFormContainer input:focus {
+    outline: none;
+}
+
+.loginform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginform button {
+    margin-top: 10px;
+    width: 100px;
+    height: 50px;
+    font-size: 16pt;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    border: none;
+}
+
+.loginform button:hover {
+    cursor: pointer;
+    background-color: #C8C8C8;
+}
