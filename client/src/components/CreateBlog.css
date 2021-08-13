@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.createPage {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.createContainer {
+    height: 70%;
+    width: 70%;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.createForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.createForm input {
+    margin: 20px;
+}
+
+.createFormTitle {
+    height: 30px;
+    width: 500px;
+    border: 0.5px solid black;
+    font-size: 12pt;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+.createFormTitle:focus {
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 1px;
+}
+
+.createFormContent {
+    height: 300px;
+    width: 500px;
+    border: 0.5px solid black;
+    font-size: 12pt;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+.createFormContent:focus {
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 1px;
+}
