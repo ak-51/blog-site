@@ -10,6 +10,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.createTitle {
+    margin-top: 0;
+    font-size: 20pt;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-weight: bold;
 }
 
 .createContainer {
@@ -58,4 +66,33 @@ body {
     outline-style: solid;
     outline-color: black;
     outline-width: 1px;
+}
+
+#createFormContent {
+    border: 0.5px solid black;
+    font-size: 12pt;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    resize: none;
+    height: 40vh;
+    width: 60vw;
+    margin-bottom: 20px;
+}
+
+#createFormContent:focus {
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 1px;
+}
+
+.createForm button {
+    width: 100px;
+    height: 40px;
+    font-size: 16pt;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    border: none;
+}
+
+.createForm button:hover {
+    cursor: pointer;
+    background-color: #C8C8C8;
 }
