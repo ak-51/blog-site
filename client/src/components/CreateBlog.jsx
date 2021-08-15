@@ -7,6 +7,7 @@ const CreateBlog = () => {
 
     const blogSubmit = (e) => {
         e.preventDefault()
+        const date = (new Date()).toDateString()
     }
 
     return(

@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.homeNavContainer {
+    margin-bottom: 10px;
+}
+
+.homeNavContainer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #C8C8C8;
+}
+
+.homeNavContainer li {
+    float: left;
+    margin: 5px;
+}
+
+.homeNavContainer button {
+    border: 0;
+    background-color: #C8C8C8;
+    width: 30vh;
+    height: 5vh;
+}
+
+.homeNavContainer button:hover {
+    cursor: pointer;
+    background-color: #B2B2B2;
+}
