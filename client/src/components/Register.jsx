@@ -1,5 +1,9 @@
 import { Fragment, useState } from "react"
+import { useHistory } from "react-router-dom"
+import axios from 'axios'
 import "./Register.css"
+
+
 
 const Register = () => {
     const [name, setName] = useState('')
@@ -7,8 +11,29 @@ const Register = () => {
     const [password, setPassword] = useState('')
     const [pswdCnfm, setPswdCnfm] = useState('')
 
+    let history = useHistory()
+
     const registrationSubmit = (e) => {
         e.preventDefault()
+
+        if(password === pswdCnfm){
+            axios.post('/api/register', {
+                name: name,
+                email: email,
+                password: password
+            })
+            .then(response => {
+                if(response.data.note === "saved"){
+                    history.push('/login')
+                }
+                else{
+                    alert("Email is already in use")
+                }
+            })
+        }
+        else{
+            console.log("Password doesn't match")
+        }
     }
 
     return(
