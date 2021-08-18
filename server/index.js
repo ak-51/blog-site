@@ -27,9 +27,11 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema)
 
 const blogSchema = new mongoose.Schema({
+    email: String,
     title: String,
     content: String,
-    date: Date
+    dtstr: String,
+    dtint: Number
 })
 
 const Blog = mongoose.model('Blog', blogSchema)
@@ -82,5 +84,20 @@ app.post('/api/login', (req, res) => {
 })
 
 app.post('/api/create', (req, res) => {
-    console.log(req.body)
+    const dtint = parseInt(Date.parse(req.body.date))
+    const dtstr = req.body.dtstr
+    
+    mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+    const blog = new Blog({
+        email: req.body.email,
+        title: req.body.title,
+        content: req.body.content,
+        dtstr: dtstr,
+        dtint: dtint
+    })
+
+    blog.save().then(result => {
+        res.json({output: "saved"})
+        mongoose.connection.close()
+    })
 })

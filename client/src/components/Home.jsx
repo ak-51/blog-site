@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react"
+import { Fragment, useState } from "react"
 import { useHistory, useLocation } from "react-router-dom"
 import "./Home.css"
 

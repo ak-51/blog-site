@@ -1,23 +1,31 @@
 import axios from "axios"
-import { Fragment, useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
+import { Fragment, useState } from "react"
+import { useHistory, useLocation } from "react-router-dom"
 import "./CreateBlog.css"
 
 const CreateBlog = () => {
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
 
+
+    let history = useHistory()
     let location = useLocation()
 
     const blogSubmit = (e) => {
         e.preventDefault()
         const date = new Date()
+        const dtstr = date.toDateString()
 
         axios.post('/api/create', {
             email: location.state.email,
             title: title,
             content: content,
-            date: date
+            date: date,
+            dtstr: dtstr
+        })
+        .then(response => {
+            console.log(response)
+            history.push('/')
         })
     }
 
