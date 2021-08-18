@@ -80,3 +80,7 @@ app.post('/api/login', (req, res) => {
         }
     })
 })
+
+app.post('/api/create', (req, res) => {
+    console.log(req.body)
+})

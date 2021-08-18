@@ -18,7 +18,10 @@ const Login = () => {
         })
         .then(response => {
             if(response.data.output === "match"){
-                history.push('/')
+                history.push({
+                    pathname: "/",
+                    state: { email: email }
+                })
             }
             else{
                 alert("Email or Password is incorrect")
