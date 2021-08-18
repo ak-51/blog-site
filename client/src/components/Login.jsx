@@ -1,3 +1,5 @@
+import axios from "axios"
+import { useHistory } from "react-router-dom"
 import { Fragment, useState } from "react"
 import './Login.css'
 
@@ -5,8 +7,23 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    let history = useHistory()
+
     const loginSubmit = (e) => {
         e.preventDefault()
+
+        axios.post('/api/login', {
+            email: email,
+            password: password
+        })
+        .then(response => {
+            if(response.data.output === "match"){
+                history.push('/')
+            }
+            else{
+                alert("Email or Password is incorrect")
+            }
+        })
     }
 
     return (

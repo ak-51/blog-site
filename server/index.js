@@ -58,3 +58,25 @@ app.post('/api/register', (req, res) => {
         }
     })
 })
+
+app.post('/api/login', (req, res) => {
+    mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+    User.find({ email: req.body.email }).then(user => {
+        if(user){
+            bcrypt.compare(req.body.password, user[0].password, function(err, result) {
+                if(result === true){
+                    res.json({ output:"match" })
+                    mongoose.connection.close()
+                }
+                else{
+                    res.json({ output:"notmatch" })
+                    mongoose.connection.close()
+                }
+            })
+        }
+        else{
+            res.json({ output:"notmatch" })
+            mongoose.connection.close()
+        }
+    })
+})
