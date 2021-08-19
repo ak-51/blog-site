@@ -104,6 +104,12 @@ app.post('/api/create', (req, res) => {
             mongoose.connection.close()
         })
     })
+})
 
-    
+app.get('/api/home', (req, res) => {
+    mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+
+    Blog.find({}).sort({ dtint:-1 }).then(blogs => {
+        res.json({blogs: blogs})
+    })
 })

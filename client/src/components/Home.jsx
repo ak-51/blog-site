@@ -1,9 +1,11 @@
+import axios from 'axios'
 import { Fragment, useEffect, useState } from "react"
 import { useHistory, useLocation } from "react-router-dom"
 import "./Home.css"
 
 const Home = () => {
     const [loggedin, setLoggedin] = useState(false)
+    const [blogs, setBlogs] = useState([])
 
     let location = useLocation()
     let history = useHistory()
@@ -12,6 +14,13 @@ const Home = () => {
         if(location.state !== undefined){
             setLoggedin(true)
         }
+    }, [])
+
+    useEffect(() => {
+        axios.get('/api/home').then(response => {
+            const jsonData = response.data.blogs
+            setBlogs(jsonData)
+        })
     }, [])
 
     const createBlog = () => {
@@ -49,7 +58,12 @@ const Home = () => {
                 }
             </nav>
             <div>
-                <h1>blog</h1>
+                {blogs.map(blog => (
+                    <div>
+                        <h1>{blog.title}</h1>
+                        <p>{blog.name}</p>
+                    </div>
+                ))}
             </div>
         </Fragment>
     )
