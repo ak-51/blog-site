@@ -27,6 +27,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema)
 
 const blogSchema = new mongoose.Schema({
+    name: String,
     email: String,
     title: String,
     content: String,
@@ -88,16 +89,21 @@ app.post('/api/create', (req, res) => {
     const dtstr = req.body.dtstr
     
     mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
-    const blog = new Blog({
-        email: req.body.email,
-        title: req.body.title,
-        content: req.body.content,
-        dtstr: dtstr,
-        dtint: dtint
+    User.find({ email: req.body.email }).then(user => {
+        const blog = new Blog({
+            name: user[0].name,
+            email: req.body.email,
+            title: req.body.title,
+            content: req.body.content,
+            dtstr: dtstr,
+            dtint: dtint
+        })
+
+        blog.save().then(result => {
+            res.json({output: "saved"})
+            mongoose.connection.close()
+        })
     })
 
-    blog.save().then(result => {
-        res.json({output: "saved"})
-        mongoose.connection.close()
-    })
+    
 })

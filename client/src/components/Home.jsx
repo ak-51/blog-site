@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react"
+import { Fragment, useEffect, useState } from "react"
 import { useHistory, useLocation } from "react-router-dom"
 import "./Home.css"
 
@@ -8,6 +8,12 @@ const Home = () => {
     let location = useLocation()
     let history = useHistory()
 
+    useEffect(() => {
+        if(location.state !== undefined){
+            setLoggedin(true)
+        }
+    }, [])
+
     const createBlog = () => {
         history.push({
             pathname: "/create",
@@ -15,12 +21,20 @@ const Home = () => {
         })
     }
 
+    const login = () => {
+        history.push('/login')
+    }
+
+    const register = () => {
+        history.push('/register')
+    }
+
     return (
         <Fragment>
             <nav className="homeNavContainer">
                 { loggedin &&
                 <ul>
-                    <li><button>Create Blog</button></li>
+                    <li><button onClick={createBlog}>Create Blog</button></li>
                     <li><button>Account Settings</button></li>
                     <li style={{float:"right"}}><button>About</button></li>
                 </ul>
@@ -28,8 +42,8 @@ const Home = () => {
                 { !loggedin && 
                     <ul>
                         <li><button onClick={createBlog}>Create Blog</button></li>
-                        <li><button>Register</button></li>
-                        <li><button>Login</button></li>
+                        <li><button onClick={register}>Register</button></li>
+                        <li><button onClick={login}>Login</button></li>
                         <li style={{float:"right"}}><button>About</button></li>
                     </ul>
                 }

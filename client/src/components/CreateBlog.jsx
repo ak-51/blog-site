@@ -25,7 +25,10 @@ const CreateBlog = () => {
         })
         .then(response => {
             console.log(response)
-            history.push('/')
+            history.push({
+                pathname: "/",
+                state: {email: location.state.email}
+            })
         })
     }
 
