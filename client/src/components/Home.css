@@ -31,3 +31,22 @@ body {
     cursor: pointer;
     background-color: #B2B2B2;
 }
+
+.blogsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.blogItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 70vw;
+    border: 2px solid black;
+    border-radius: 1cm;
+    cursor: pointer;
+    margin-bottom: 10px;
+}

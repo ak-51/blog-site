@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.blogPage {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.blogContainer {
+    width: 80vw;
+    border: 2px solid black;
+    border-radius: 0.2cm;
+}
+
+.innerBlogContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.blogTitle {
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px;
+    font-size: 30pt;
+    font-weight: 700;
+}
+
+.blogData {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.blogName {
+    margin-right: 50vw;
+}
+
+.blogContent {
+    margin-top: 10px;
+    margin-left: 9.15vw;
+    margin-right: 9.15vw;
+    text-align: start;
+    font-family: 'Noto Sans JP', sans-serif;
+}

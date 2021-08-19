@@ -111,5 +111,13 @@ app.get('/api/home', (req, res) => {
 
     Blog.find({}).sort({ dtint:-1 }).then(blogs => {
         res.json({blogs: blogs})
+        mongoose.connection.close()
+    })
+})
+
+app.post("/api/blog", (req, res) => {
+    mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+    Blog.find({ dtint:req.body.id }).then(blogs => {
+        res.json({blog: blogs[0]})
     })
 })

@@ -14,7 +14,7 @@ const Home = () => {
         if(location.state !== undefined){
             setLoggedin(true)
         }
-    }, [])
+    }, [location.state])
 
     useEffect(() => {
         axios.get('/api/home').then(response => {
@@ -38,6 +38,10 @@ const Home = () => {
         history.push('/register')
     }
 
+    const openBlog = (id) => {
+        history.push(`/blog/${id}`)
+    }
+
     return (
         <Fragment>
             <nav className="homeNavContainer">
@@ -57,11 +61,13 @@ const Home = () => {
                     </ul>
                 }
             </nav>
-            <div>
+            <div className="blogsContainer">
                 {blogs.map(blog => (
-                    <div>
-                        <h1>{blog.title}</h1>
-                        <p>{blog.name}</p>
+                    <div className="blogItem" onClick={() => openBlog(blog.dtint)}>
+                        <div>
+                            <h1>{blog.title}</h1>
+                            <p>By {blog.name}</p>
+                        </div>
                     </div>
                 ))}
             </div>
