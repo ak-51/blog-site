@@ -17,7 +17,7 @@ const Blog = () => {
         })
         .then(resp => {
             setTitle(resp.data.blog.title)
-            setName(resp.data.blog.name)
+            setName("By " + resp.data.blog.name)
             setContent(resp.data.blog.content)
             setDate(resp.data.blog.dtstr)
         })
@@ -30,12 +30,13 @@ const Blog = () => {
                     <div className="innerBlogContainer">
                         <div className="blogTitle">{title}</div>
                         <div className="blogData">
-                            <span className="blogName">By {name}</span>
+                            <span className="blogName">{name}</span>
                             <span>{date}</span>
+                            <hr />
                         </div>
                     </div>
                     <div className="blogContent">
-                        {content}
+                        {content.split('\n').map(str => <p>{str}</p>)}
                     </div>
                 </div>
             </div>
