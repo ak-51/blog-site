@@ -5,6 +5,7 @@ import Register from './components/Register.jsx'
 import Login from './components/Login.jsx'
 import CreateBlog from './components/CreateBlog.jsx'
 import Blog from './components/Blog.jsx'
+import Account from './components/Account.jsx';
 import './App.css';
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path='/blog/:id'>
             <Blog />
+          </Route>
+          <Route path='/account'>
+            <Account />
           </Route>
         </Switch>
       </BrowserRouter>

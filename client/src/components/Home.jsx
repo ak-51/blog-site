@@ -42,13 +42,20 @@ const Home = () => {
         history.push(`/blog/${id}`)
     }
 
+    const accountSettings = () => {
+        history.push({
+            pathname: "/account",
+            state: {email:location.state.email}
+        })
+    }
+
     return (
         <Fragment>
             <nav className="homeNavContainer">
                 { loggedin &&
                 <ul>
                     <li><button onClick={createBlog}>Create Blog</button></li>
-                    <li><button>Account Settings</button></li>
+                    <li><button onClick={accountSettings}>Account</button></li>
                     <li style={{float:"right"}}><button>About</button></li>
                 </ul>
                 }

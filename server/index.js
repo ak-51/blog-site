@@ -119,5 +119,14 @@ app.post("/api/blog", (req, res) => {
     mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
     Blog.find({ dtint:req.body.id }).then(blogs => {
         res.json({blog: blogs[0]})
+        mongoose.connection.close()
+    })
+})
+
+app.post("/api/account", (req, res) => {
+    mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+    User.find({email: req.body.email}).then(user => {
+        res.json({name: user[0].name, email: user[0].email})
+        mongoose.connection.close()
     })
 })
