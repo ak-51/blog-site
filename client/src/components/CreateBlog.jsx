@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Fragment, useState } from "react"
+import { Fragment, useEffect, useState } from "react"
 import { useHistory, useLocation } from "react-router-dom"
 import "./CreateBlog.css"
 
@@ -10,6 +10,12 @@ const CreateBlog = () => {
 
     let history = useHistory()
     let location = useLocation()
+
+    useEffect(() => {
+        if(location.state === undefined){
+            history.push('/login')
+        }
+    }, [])
 
     const blogSubmit = (e) => {
         e.preventDefault()
